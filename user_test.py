@@ -72,6 +72,16 @@ class TestCredentials(unittest.TestCase):
 		gmail.save_credentials()
 		self.assertEqual(len(Credential.display_credentials(twitter.user_name)),3)
 
+    def test_find_by_site_name(self):
+		'''
+		Test to check if the find_by_site_name method returns the correct credential
+		'''
+		self.new_credential.save_credentials()
+		twitter = Credential('Venus','Twitter','Vee','dwsp003')
+		twitter.save_credentials()
+		credential_exists = Credential.find_by_site_name('Twitter')
+		self.assertEqual(credential_exists,twitter)    
+
     
 if __name__ == '__main__':
 	unittest.main(verbosity=2)
