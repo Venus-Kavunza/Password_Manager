@@ -14,29 +14,25 @@ def save_user(user):
 	'''
 	User.save_user(user)
 
-class TestCredentials(unittest.TestCase):
-    '''
-    Test class that defines test cases for the credentials class behaviours.
+def verify_user(first_name,password):
+	'''
+	This function verifies the existance of the user before creating credentials
+	'''
+	checking_user = Credential.check_user(first_name,password)
+	return checking_user
 
-    Args:
-         unittest.TestCase: helps in creating test cases
-    '''
-    def test_check_user(self):
-        '''
-        Function to test whether the login in function check_user works as expected
-        '''
-        self.new_user = User('Venus','Mwende','dwsp003')
-        self.new_user.save_user()
-        user2 = User('Muya','Trojan','dwsp003')
-        user2.save_user()
+def generate_password():
+	'''
+	This function generates a password automatically
+	'''
+	gen_pass = Credential.generate_password()
+	return gen_pass
 
-        for user in User.users_list:
-			if user.first_name == user2.first_name and user.password == user2.password:
-				current_user = user.first_name
-		return current_user
-
-		self.assertEqual(current_user,Credential.check_user(user2.password,user2.first_name))
+def create_credential(user_name,site_name,account_name,password):
+	'''
+	This function creates a new credential
+	'''
+	new_credential=Credential(user_name,site_name,account_name,password)
+	return new_credential
 
 
-if __name__ == '__main__':
-	unittest.main(verbosity=2)
