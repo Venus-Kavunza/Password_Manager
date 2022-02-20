@@ -53,6 +53,25 @@ class TestCredentials(unittest.TestCase):
 		return current_user
 
 		self.assertEqual(current_user,Credential.check_user(user2.password,user2.first_name))
+
+    def tearDown(self):
+		'''
+		Function to clear the credentials list after every test
+		'''
+		Credential.credentials_list = []
+		User.users_list = []
+
+	def test_display_credentials(self):
+		'''
+		Test to check if the display_credentials method, displays the correct credentials.
+		'''
+		self.new_credential.save_credentials()
+		twitter = Credential('Venus','Twitter','Vee','dwsp003')
+		twitter.save_credentials()
+		gmail = Credential('Venus','Gmail','Vee','dwsp001')
+		gmail.save_credentials()
+		self.assertEqual(len(Credential.display_credentials(twitter.user_name)),3)
+
     
 if __name__ == '__main__':
 	unittest.main(verbosity=2)
