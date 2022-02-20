@@ -66,3 +66,15 @@ class Credential:
 		'''
 		gen_pass=''.join(random.choice(char) for _ in range(size))
 		return gen_pass 
+
+    @classmethod
+	def display_credentials(cls,user_name):
+		'''
+		This class method displays the list of credentials saved
+		'''
+		user_credentials_list = []
+		for credential in cls.credentials_list:
+			if credential.user_name == user_name:
+				user_credentials_list.append(credential)
+		return user_credentials_list
+        
