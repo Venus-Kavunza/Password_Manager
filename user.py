@@ -8,7 +8,7 @@ class User:
     This class creates user accounts and save their details
     """
 
-    users_list[]
+    users_list = []
     def __init__(self,first_name,last_name,password):
         '''
         This method defines the properties for each user object will hold.
