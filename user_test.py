@@ -1,4 +1,6 @@
 import unittest
+import pyperclip
+
 
 class TestUser(unittest.TestCase):
     """
