@@ -52,3 +52,17 @@ class Credential:
 		self.site_name = site_name
 		self.account_name = account_name
 		self.password = password
+
+    def save_credentials(self):
+		'''
+		This function saves a newly created user instance
+		'''
+		# global users_list
+		Credential.credentials_list.append(self)
+	
+	def generate_password(size=8, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+		'''
+		This function generates an 8 character password for a credential
+		'''
+		gen_pass=''.join(random.choice(char) for _ in range(size))
+		return gen_pass 
