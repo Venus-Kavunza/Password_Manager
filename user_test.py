@@ -53,15 +53,6 @@ class TestCredentials(unittest.TestCase):
 		return current_user
 
 		self.assertEqual(current_user,Credential.check_user(user2.password,user2.first_name))
-
-    def setUp(self):
-		'''
-		Function to create an account's credentials before each test
-		'''
-		self.new_credential = Credential('Venus','Facebook','Vee','dwsp003')
-
-
-
-
+    
 if __name__ == '__main__':
 	unittest.main(verbosity=2)

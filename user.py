@@ -2,28 +2,31 @@ import pyperclip
 import random
 import string
 
-global users_list
+# Global Variables
+global users_list 
 class User:
-    """
-    This class creates user accounts and save their details
-    """
+	'''
+	This class creates user accounts and save their information
+	'''
+	# Class Variables
+	# global users_list
+	users_list = []
+	def __init__(self,first_name,last_name,password):
+		'''
+		This method defines the properties for each user object will hold.
+		'''
 
-    users_list = []
-    def __init__(self,first_name,last_name,password):
-        '''
-        This method defines the properties for each user object will hold.
-        '''
+		# instance variables
+		self.first_name = first_name
+		self.last_name = last_name
+		self.password = password
 
-        self.first_name = first_name
-        self.last_name = last_name
-        self.password = password
-
-    def save_user(self):
-        '''
-        This function will save a newly created user instance
-        '''
-        User.users_list.append(self)
-
+	def save_user(self):
+		'''
+		This function saves a newly created user instance
+		'''
+		User.users_list.append(self)
+		
 class Credential:
 	'''
 	This class creates  account credentials, generate passwords and save their information
@@ -53,7 +56,7 @@ class Credential:
 		self.account_name = account_name
 		self.password = password
 
-    def save_credentials(self):
+	def save_credentials(self):
 		'''
 		This function saves a newly created user instance
 		'''
@@ -65,9 +68,9 @@ class Credential:
 		This function generates an 8 character password for a credential
 		'''
 		gen_pass=''.join(random.choice(char) for _ in range(size))
-		return gen_pass 
+		return gen_pass
 
-    @classmethod
+	@classmethod
 	def display_credentials(cls,user_name):
 		'''
 		This class method displays the list of credentials saved
@@ -77,4 +80,6 @@ class Credential:
 			if credential.user_name == user_name:
 				user_credentials_list.append(credential)
 		return user_credentials_list
-        
+				
+
+
